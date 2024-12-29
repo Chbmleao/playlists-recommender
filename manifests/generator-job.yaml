@@ -6,9 +6,6 @@ metadata:
   labels:
     app: playlist-rules-generator-job
 spec:
-  selector:
-    matchLabels:
-      app: playlist-rules-generator-job
   template:
     metadata:
       labels:
