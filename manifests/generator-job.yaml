@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: playlist-rules-generator-job
+  namespace: carlosleao
+  labels:
+    app: playlist-rules-generator-job
+spec:
+  selector:
+    matchLabels:
+      app: playlist-rules-generator-job
+  template:
+    metadata:
+      labels:
+        app: playlist-rules-generator-job
+    spec:
+      containers:
+        - name: playlist-rules-generator
+          image: chbmleao/playlist-rules-generator:0.1
+          command: ["python3", "generator.py"]
+          volumeMounts:
+            - mountPath: /app/data 
+              name: shared-storage
+      restartPolicy: Never
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: project2-pvc-carlosleao
+  backoffLimit: 4

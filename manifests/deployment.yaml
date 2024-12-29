@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-recommender
+  namespace: carlosleao
+  labels:
+    app: playlist-recommender
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: playlist-recommender
+  template:
+    metadata:
+      labels:
+        app: playlist-recommender
+    spec:
+      containers:
+        - name: recommender-container
+          image: chbmleao/playlists-recommender-system:0.2
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - mountPath: /app/data
+              name: shared-storage
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: project2-pvc-carlosleao
