@@ -14,7 +14,7 @@ spec:
       containers:
         - name: playlist-rules-generator
           image: chbmleao/playlist-rules-generator:0.1
-          command: ["python3", "-u", "generator.py"]
+          command: []
           volumeMounts:
             - mountPath: /app/data 
               name: shared-storage
