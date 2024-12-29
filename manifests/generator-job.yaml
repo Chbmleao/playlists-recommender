@@ -14,20 +14,13 @@ spec:
       containers:
         - name: playlist-rules-generator
           image: chbmleao/playlist-rules-generator:0.1
-          command: []
+          command: ["python3", "/app/generator.py"]
           volumeMounts:
-            - mountPath: /app/data 
+            - mountPath: /app/data
               name: shared-storage
-          resources:
-            requests:
-              memory: "512Mi"
-              cpu: "500m"
-            limits:
-              memory: "1Gi"
-              cpu: "1"
       restartPolicy: Never
       volumes:
         - name: shared-storage
           persistentVolumeClaim:
             claimName: project2-pvc-carlosleao
-  backoffLimit: 4
+backoffLimit: 4
