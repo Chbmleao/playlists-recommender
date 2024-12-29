@@ -18,6 +18,13 @@ spec:
           volumeMounts:
             - mountPath: /app/data 
               name: shared-storage
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
       restartPolicy: Never
       volumes:
         - name: shared-storage
