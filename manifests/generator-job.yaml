@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playlist-rules-generator-job
+  generateName: playlist-rules-generator-job-
   namespace: carlosleao
   labels:
     app: playlist-rules-generator-job
@@ -23,4 +23,7 @@ spec:
         - name: shared-storage
           persistentVolumeClaim:
             claimName: project2-pvc-carlosleao
+      syncPolicy:
+        automated:
+          prune: true
   backoffLimit: 4
