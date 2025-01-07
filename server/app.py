@@ -32,6 +32,8 @@ def create_app():
   app.model = [RecommendationRule(rule[:-1], rule[-1]) for rule in raw_rules]
   print("Model loaded successfully")
   print(app.model[0])
+  print(len(app.model))
+  print(app.model)
 
   @app.route('/api/recommend', methods=['POST'])
   def recommend():
@@ -52,7 +54,6 @@ def create_app():
 
       # Keep track of already recommended songs to avoid duplicates
       already_recommended = set()
-
 
       while len(recommended_songs) < maximum_recommendations and expected_matches > 0:
         for rule in app.model:
