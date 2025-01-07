@@ -1,0 +1,2 @@
+fpgrowth_py==1.0.0
+pandas==2.2.3
