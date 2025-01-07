@@ -23,7 +23,7 @@ def create_model():
   print(len(playlists))
   print(playlists[0])
 
-  freq_item_set, rules = fpgrowth(playlists, minSupRatio=0.05, minConf=0.1)
+  freq_item_set, rules = fpgrowth(playlists, minSupRatio=0.02, minConf=0.5)
   print(len(rules))
 
   with open('/app/data/playlist_rules.pkl', 'wb') as file:
