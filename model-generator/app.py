@@ -20,11 +20,13 @@ def create_model():
 
   playlists_dict = data.groupby('pid')['track_name'].apply(list).to_dict()
   playlists = list(playlists_dict.values())
-  print(len(playlists))
-  print(playlists[0])
+  print("Num of playlists: ", len(playlists))
+  print("First playlist: ", playlists[0])
 
-  freq_item_set, rules = fpgrowth(playlists, minSupRatio=0.02, minConf=0.5)
-  print(len(rules))
+  freq_item_set, rules = fpgrowth(playlists, minSupRatio=0.07, minConf=0.1)
+  print("Num of rules: ", len(rules))
+  print("Average rules size:", sum(len(rule)-1 for rule in rules) / len(rules))
+  print("First rule: ", rules[0])
 
   with open('/app/data/playlist_rules.pkl', 'wb') as file:
     pickle.dump(rules, file)

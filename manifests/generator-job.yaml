@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: playlist-rules-generator
-          image: chbmleao/playlist-rules-generator:0.10
+          image: chbmleao/playlist-rules-generator:0.11
           command: ["sh", "entrypoint.sh"]
           volumeMounts:
             - mountPath: /app/data
