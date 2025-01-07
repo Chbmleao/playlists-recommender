@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playlist-rules-generator-job-6e21d85
+  name: playlist-rules-generator-job-0d1b83e
   namespace: carlosleao
   labels:
     app: playlist-rules-generator-job
