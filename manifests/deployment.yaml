@@ -12,6 +12,8 @@ spec:
       app: playlist-recommender
   template:
     metadata:
+      annotations:
+        reloader.stakater.com/auto: "true"
       labels:
         app: playlist-recommender
     spec:
