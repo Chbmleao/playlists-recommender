@@ -5,6 +5,10 @@ on:
     paths:
       - "manifests/generator-job.yaml"
       - "manifests/service.yaml"
+  workflow_run:
+    workflows: ["Update Kubernetes Generator Job YAML on CSV Change"]
+    types:
+      - completed
 
 jobs:
   update-yaml:
