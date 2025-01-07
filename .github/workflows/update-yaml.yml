@@ -22,7 +22,7 @@ jobs:
           YAML_FILE="manifests/generator-job.yaml" # Replace with the path to your YAML file
           HASH="${{ steps.get_hash.outputs.hash }}"
 
-          run: sed -i "s/^  name: .*/  name: playlist-rules-generator-job-${HASH}/" "$YAML_FILE"
+          sed -i "s/^  name: playlist-rules-generator-job.*/  name: playlist-rules-generator-job-${HASH}/" "$YAML_FILE"
 
       - name: Commit and push changes
         run: |
