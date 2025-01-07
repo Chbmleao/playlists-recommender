@@ -1,0 +1,12 @@
+project: carlosleao-project
+source:
+  repoURL: https://github.com/Chbmleao/playlists-recommender
+  path: ./manifests/
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: carlosleao
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
