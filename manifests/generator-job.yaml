@@ -23,4 +23,8 @@ spec:
         - name: shared-storage
           persistentVolumeClaim:
             claimName: project2-pvc-carlosleao
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
   backoffLimit: 4
