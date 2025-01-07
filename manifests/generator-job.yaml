@@ -18,21 +18,17 @@ spec:
           volumeMounts:
             - mountPath: /app/data
               name: shared-storage
-      - name: redeploy-trigger
-        image: bitnami/kubectl:latest
-        command:
-        - /bin/sh
-        - -c
-        - |
-          kubectl delete service playlist-recommender-service
-          kubectl delete deploy playlist-recommender  
+        - name: redeploy-trigger
+          image: bitnami/kubectl:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              kubectl delete service playlist-recommender-service
+              kubectl delete deploy playlist-recommender
       restartPolicy: Never
       volumes:
         - name: shared-storage
           persistentVolumeClaim:
             claimName: project2-pvc-carlosleao
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
   backoffLimit: 4
