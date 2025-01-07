@@ -12,19 +12,17 @@ spec:
       app: playlist-recommender
   template:
     metadata:
-      annotations:
-        reloader.stakater.com/auto: "true"
       labels:
         app: playlist-recommender
     spec:
       containers:
         - name: recommender-container
-          image: chbmleao/playlists-recommender-system:0.3
+          image: chbmleao/playlists-recommender-system:0.4
           ports:
             - containerPort: 5000
           env:
             - name: IMAGE_VERSION
-              value: "0.3"
+              value: "0.4"
           volumeMounts:
             - mountPath: /app/data
               name: shared-storage
