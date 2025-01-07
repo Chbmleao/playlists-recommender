@@ -17,12 +17,12 @@ spec:
     spec:
       containers:
         - name: recommender-container
-          image: chbmleao/playlists-recommender-system:0.4
+          image: chbmleao/playlists-recommender-system:0.5
           ports:
             - containerPort: 5000
           env:
             - name: IMAGE_VERSION
-              value: "0.4"
+              value: "0.5"
           volumeMounts:
             - mountPath: /app/data
               name: shared-storage

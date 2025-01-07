@@ -76,7 +76,7 @@ def create_app():
 
       return jsonify({
         "songs": recommended_songs[:maximum_recommendations], 
-        "version": "0.2",
+        "version": image_version,
         "model_date": model_last_modified
       }), 200
       
