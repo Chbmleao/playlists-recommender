@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playlist-recommender
+  name: playlist-recommender-a64d1a1
   namespace: carlosleao
   labels:
     app: playlist-recommender
