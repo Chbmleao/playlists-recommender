@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playlist-recommender-a64d1a12
+  name: playlist-recommender-a64d1a121
   namespace: carlosleao
   labels:
     app: playlist-recommender
 spec:
-  replicas: 4
+  replicas: 3
   selector:
     matchLabels:
       app: playlist-recommender
